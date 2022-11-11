@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <main>
+        <!-- Este div es el circulo interno de cronometro -->
+        <div class="circulo"> 
+           <!--  Este div contiene los numeros del conometro -->
+            <div  id="cronometro" class="cronometro" >00:00</div>
+
+            <!-- Este sera el contenedor de los botones -->
+            <div class="buttons">
+
+                <!-- Este sera el boton de stop -->
+                <div class="stop" id="stop"></div>
+
+                <!-- Este boton hara que se pare o que siga -->
+                <div id="play-pause" class="paused"></div>
+            </div>
+        </div>
+
+       <!--  Este div representa el circulo pequeño que gira marcando los segundo -->
+        <div class="seconds" id="seconds"></div>
+    </main>
+    
+</body>
+</html>

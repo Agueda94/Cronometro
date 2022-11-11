@@ -1,0 +1,109 @@
+/*quitamos los estilos que trae por defecto el navegador*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Esto es para poder utilizar el valor relativo rem*/
+html{
+    font-size: 62.5%;
+}
+
+/*estilos al main*/
+main{
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+}
+
+
+/*circulo interno*/
+.circulo{
+    border-radius: 50%; /*para que el div sea redondo*/
+    width: 12.0rem;/*ancho del circulo*/
+    height: 12.0rem;/*largo del circulo*/
+    background-color: black;/*color de la parte interna del circulo*/
+    border: 0.1rem solid white;/*borde del circulo*/
+    margin: 5.0rem auto;/*para centrar el circulo*/
+   color: white; /*color de los numeros*/
+   /*esta parte es los numeros esten arriba de los botones*/
+   display: flex;
+   flex-direction: column;
+   /*para centrar todo en el circulo*/
+   justify-content: center;
+   align-items: center;
+}
+
+/*circulo externo*/
+.circulo::before{
+    content: "";/*es para que el before se vea*/
+    border-radius: 50%;/*para que sea redondo tambien*/
+    z-index: -1;/*para que aparezca por debajo del circulo interno*/
+    width: 16.0rem;/*es un poco mas grande que el circulo interno*/
+    height: 16.0rem;/*y tambien es mas largo*/
+    /*esto es para dejarlo en el medio y restarle la mitad de su ancho*/
+    position: absolute;
+    left: calc(50% - 8.0rem);
+    top: calc(50% - 8.0rem);
+    background-color: black;/*color del circulo externo*/
+}
+
+/*circulo pequeño para los segundos*/
+ .seconds{
+    /*tamaño*/
+    width: 2.0rem;
+    height: 2.0rem;
+    /*color*/
+    background-color: white;
+    /*para que sea redonda*/
+    border-radius: 50%;
+    /*lo centramos en el medio del circulo*/
+    position: absolute;
+    left: calc(50% - 1.0rem);
+    top: calc(50% - 1.0rem);
+    /*creamos una animacion que dure 60s y que sea infinita */
+    animation: rotacion 60s linear infinite;
+    /*pausamos la animacion*/
+    animation-play-state: paused;
+}
+
+
+/*animacion del circulo pequeño*/
+@keyframes rotacion{
+    /*translateX permite que se mueva hacia la derecha pero junto con rotate*/
+    from{ transform: rotate(-90deg) translateX(6.0rem);}
+    to{transform: rotate(270deg) translateX(6.0rem);}
+}
+
+/*botones*/
+.buttons{
+    margin-top: 1.0rem;
+    display: inline-flex; /*para que salga uno al lado del otro*/
+}
+
+/*pausa*/
+.paused{
+    height: 1.0rem;
+    border-width: 0.5rem 0.0rem 0.5rem 1.0rem;/*arriba-derecha,ancho, abajo derecha, */
+    cursor: pointer;
+    margin-left: 1.5rem;
+    border-color: transparent transparent transparent white;/*coloca las esquinas transparentes para hacer el triangulo*/
+    transition: 100ms all ease;/*nos permite que crear una animacion al darle click*/
+    will-change: border-width;/*le dice que habra un cambio*/
+    border-style: solid;
+}
+
+/*bton de pausa*/
+.running{
+    border-style: double;
+    border-width: 0.0rem 0.0rem 0.0rem 1.0rem;
+}
+
+/*boton de stop*/
+.stop{
+    background-color: white;
+    height: 1.0rem;
+    width: 1.0rem;
+    cursor: pointer;
+}
+
